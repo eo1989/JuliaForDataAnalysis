@@ -147,7 +147,7 @@ Symbol("1")
 :x
 :x1
 
-:hello world
+# :hello world
 :1
 
 # Code for section 6.6.2
