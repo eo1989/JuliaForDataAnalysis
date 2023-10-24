@@ -1,7 +1,7 @@
 ## Errata
 
 This file contains errata for the
-["Julia for Data Analysis"](https://www.manning.com/books/julia-for-data-analysis?utm_source=bkamins&utm_medium=affiliate&utm_campaign=book_kaminski2_julia_3_17_22)
+[&#34;Julia for Data Analysis&#34;](https://www.manning.com/books/julia-for-data-analysis?utm_source=bkamins&utm_medium=affiliate&utm_campaign=book_kaminski2_julia_3_17_22)
 book that has been written by Bogumił Kamiński and has been published by [Manning Publications Co.](https://www.manning.com/)
 
 ### Chapter 1, section 1.2.1, page 7
