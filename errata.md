@@ -1,4 +1,4 @@
-## Errata
+#### Errata
 
 This file contains errata for the
 [&#34;Julia for Data Analysis&#34;](https://www.manning.com/books/julia-for-data-analysis?utm_source=bkamins&utm_medium=affiliate&utm_campaign=book_kaminski2_julia_3_17_22)
@@ -8,16 +8,18 @@ book that has been written by Bogumił Kamiński and has been published by [Mann
 
 I show the following example of code execution:
 
-```
-julia> function sum_n(n)
-           s = 0
-           for i in 1:n
-               s += i
-           end
-           return s
-       end
+```julia
+function sum_n(n)
+    s = 0
+        for i in 1:n
+            s += i
+        end
+    return s
+end
 sum_n (generic function with 1 method)
+```
 
+```julia
 julia> @time sum_n(1_000_000_000)
   0.000001 seconds
 500000000500000000
@@ -28,7 +30,7 @@ The issue is that this is the situation under Julia 1.7.
 
 Under Julia 1.8 and Julia 1.9 running the same code takes longer (tested under Julia 1.9-beta4):
 
-```
+```julia
 julia> @time sum_n(1_000_000_000)
   2.265569 seconds
 500000000500000000
@@ -38,7 +40,7 @@ The reason for this inconsistency is a bug in the `@time` macro introduced in Ju
 The `sum_n(1_000_000_000)` call (without `@time`) is executed fast.
 Here is a simplified benchmark (run under Julia 1.9-beta4):
 
-```
+```julia
 julia> let
            start = time_ns()
            v = sum_n(1_000_000_000)
@@ -54,7 +56,7 @@ See [this issue](https://github.com/JuliaLang/julia/issues/47561).
 
 ### Chapter 2, introduction, page 20
 
-* middle of page 20: the provided link http://mng.bz/5mWD explaining *k-times winsorized mean* definition no longer works.
+- middle of page 20: the provided link http://mng.bz/5mWD explaining _k-times winsorized mean_ definition no longer works.
   Use https://web.archive.org/web/20210804184830/https://v8doc.sas.com/sashtml/insight/chap38/sect17.htm provided by
   [The Wayback Machine](https://web.archive.org/) instead.
 
@@ -62,13 +64,13 @@ See [this issue](https://github.com/JuliaLang/julia/issues/47561).
 
 I compare the following expressions:
 
-```
+```julia
 x > 0 && println(x)
 ```
 
 and
 
-```
+```julia
 if x > 0
     println(x)
 end
@@ -83,7 +85,7 @@ The first expression evaluates to `false`, while the second evaluates to `nothin
 
 Here is how you can check it:
 
-```
+```julia
 julia> x = -7
 -7
 
@@ -97,37 +99,37 @@ nothing
 
 ### Chapter 2, section 2.5, page 45
 
-* top of page 45: *use in this book):* should be *use in this book:*
+- top of page 45: _use in this book):_ should be _use in this book:_
 
 ### Chapter 3, section 3.2.3, page 58
 
-* middle of page 58: `y[end - the + 1] = y[end -- k]` should be `y[end - i + 1] = y[end - k]`
+- middle of page 58: `y[end - the + 1] = y[end -- k]` should be `y[end - i + 1] = y[end - k]`
 
 ### Chapter 3, section 3.2.3, page 59
 
-* top of page 59: `sort(v::AbstractVector; kwthe.)` should be `sort(v::AbstractVector; kws...)`
+- top of page 59: `sort(v::AbstractVector; kwthe.)` should be `sort(v::AbstractVector; kws...)`
 
 ### Chapter 6, section 6.4.1, page 132
 
-* middle of Listing 6.4: `codeunits("?")` should be `codeunits("ε")`
+- middle of Listing 6.4: `codeunits("?")` should be `codeunits("ε")`
 
 ### Chapter 8, section 8.1.2, page 189
 
-* middle of page 189: `zsdf format` should be `zstd format`
+- middle of page 189: `zsdf format` should be `zstd format`
 
 ### Chapter 8, section 8.2.1, page 191
 
-* bottom of page 191: `misssingstring` should be `missingstring`
+- bottom of page 191: `misssingstring` should be `missingstring`
 
 ### Chapter 10, section 10.2.2, page 255
 
-* bottom of page 255: `? Error: Error adding value to column :b.` should be `┌ Error: Error adding value to column :b.`
+- bottom of page 255: `? Error: Error adding value to column :b.` should be `┌ Error: Error adding value to column :b.`
 
 ### Chapter 12, section 12.1.4, page 302
 
-* bottom of page 302:
+- bottom of page 302:
 
-```
+```julia
 julia> df = DataFrame(a=1:3, b=1:3, c=1:3)
 3×3 DataFrame
  Row │ a      b      c
@@ -140,7 +142,7 @@ julia> df = DataFrame(a=1:3, b=1:3, c=1:3)
 
 should be
 
-```
+```julia
 julia> df = DataFrame(a=1:3, b=1:3, c=1:3)
 3×3 DataFrame
  Row │ a      b      c
@@ -153,5 +155,5 @@ julia> df = DataFrame(a=1:3, b=1:3, c=1:3)
 
 ### Chapter 12, section 12.3.2, page 318
 
-* top of page 318: in the annotation to Figure 12.6 there is text *Applies a log1p* which looks like *Applies a loglp*
+- top of page 318: in the annotation to Figure 12.6 there is text _Applies a log1p_ which looks like _Applies a loglp_
   (this is a display issue due to the fact that in the font used letter `l` and digit `1` look identical)
